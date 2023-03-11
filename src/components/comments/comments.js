@@ -17,6 +17,8 @@ export class Comments {
       const date = document.createElement('span');
       const trash = document.createElement('div');
       trash.classList.add('comment__trash');
+      trash.setAttribute('data-id', comment.id);
+      trash.addEventListener('pointerdown', this.handleTrash.bind(this));
       date.textContent = `Дата: ${comment.date}`;
       commentText.textContent = `Teкст комментария: ${comment.text}`;
       c.append(header);
@@ -28,6 +30,11 @@ export class Comments {
     } else if (message === 'delete') {
       console.log('delete');
     }
+  }
+
+  handleTrash(event) {
+    this.storage.deleteComment(event.target.getAttribute('data-id'));
+    this.commentsRoot.removeChild(event.target.parentElement);
   }
 
   showComments() {

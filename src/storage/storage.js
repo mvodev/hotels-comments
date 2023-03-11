@@ -9,8 +9,8 @@ class Storage {
     this.observers.forEach((o) => o.handleEvent('add', comment));
   }
 
-  removeComment(comment) {
-    const index = this.comments.findIndex((elem) => elem.id === comment.id);
+  deleteComment(commentId) {
+    const index = this.comments.findIndex((elem) => elem.id === commentId);
     this.comments.splice(index, 1);
   }
 
