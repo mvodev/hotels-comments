@@ -44,7 +44,6 @@ export class Comments {
     this.commentsRoot.removeChild(event.target.parentElement);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   handleLike(event) {
     const id = event.target.parentElement.getAttribute('data-id');
     if (event.target.classList.contains('comment__like_is_liked')) {
