@@ -28,14 +28,16 @@ export class AddCommentForm {
     if (errorInForm) {
       return;
     }
-
+    const actualDate = new Date();
+    const actualHours = actualDate.getHours();
+    const actualMinutes = actualDate.getMinutes();
     const comment = {
       id: Date.now(),
       name: formData.get('name'),
       text: formData.get('comment'),
       date: formData.get('comment-date').length === 0 
-            ? new Date().toDateString() 
-            : new Date(formData.get('comment-date')).toDateString(), 
+            ? new Date().toString()
+            : new Date(new Date(formData.get('comment-date')).setHours(actualHours,actualMinutes)), 
       likes:0,
     }
     this.observers.forEach((o) => o.handleEvent('add', comment));

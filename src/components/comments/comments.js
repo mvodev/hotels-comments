@@ -13,6 +13,26 @@ export class Comments {
 
   handleEvent(message, comment) {
     if (message === 'add') {
+      let dateToShow = '';
+      const actualDate = new Date();
+      const actualDay = actualDate.getDate();
+      const actualMonth = actualDate.getMonth();
+      const actualYear = actualDate.getFullYear();
+      const commentDate = new Date(comment.date);
+      const commentYear = commentDate.getFullYear();
+      const commentMonth = commentDate.getMonth();
+      const commentDay = commentDate.getDate();
+      const commentDateToShow = `${commentDay < 10 ? `0${commentDay}` : commentDay}.${commentMonth < 10 ? `0${commentMonth + 1}` : commentMonth + 1}.${commentYear}`;
+      const commentHours = commentDate.getHours() < 10 ? `0${commentDate.getHours()}` : commentDate.getHours();
+      const commentMinutes = commentDate.getMinutes() < 10 ? `0${commentDate.getMinutes()}` : commentDate.getMinutes();
+      if (commentYear === actualYear && commentMonth === actualMonth) {
+        if (actualDay - commentDay === 1) {
+          dateToShow = `вчера ${commentHours}:${commentMinutes}`;
+        } else if (commentDay === actualDay) {
+          dateToShow = `сегодня ${commentHours}:${commentMinutes}`;
+        } else dateToShow = `${commentDateToShow}`;
+      } else dateToShow = `${commentDateToShow}`;
+      console.log(commentDate);
       const c = document.createElement('li');
       c.setAttribute('data-id', comment.id);
       const header = document.createElement('h2');
@@ -25,7 +45,7 @@ export class Comments {
       const like = document.createElement('div');
       like.classList.add('comment__like');
       like.addEventListener('pointerdown', this.handleLike.bind(this));
-      date.textContent = `Дата: ${comment.date}`;
+      date.textContent = `Дата: ${dateToShow}`;
       commentText.textContent = `Teкст комментария: ${comment.text}`;
       c.append(header);
       c.append(commentText);
