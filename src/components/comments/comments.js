@@ -9,7 +9,6 @@ export class Comments {
     this.commentForm.addObserver(this);
     this.storage = new Storage();
     this.storage.addObserver(this);
-    this.showComments();
   }
 
   handleEvent(message, comment) {
@@ -53,24 +52,6 @@ export class Comments {
       event.target.classList.add('comment__like_is_liked');
       this.storage.addLikeToComment(id);
     }
-  }
-
-  showComments() {
-    const fragment = new DocumentFragment();
-    const numberOfComments = this.storage.getComments().length;
-    const comments = this.storage.getComments();
-    for (let i = 0; i < numberOfComments; i += 1) {
-      const comment = document.createElement('div');
-      const header = document.createElement('h2');
-      header.textContent = comments[i].name;
-      const commentText = document.createElement('p');
-      commentText.textContent = comments[i].name;
-      comment.append(header);
-      comment.append(commentText);
-      comment.classList.add('comments__item');
-      fragment.append(comment);
-    }
-    this.commentsRoot.append(fragment);
   }
 }
 
