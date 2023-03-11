@@ -4,8 +4,8 @@ import { AddCommentForm } from '../add-comment/add-comment';
 export class Comments {
   constructor(commentsRoot, store) {
     this.commentsRoot = commentsRoot;
-    const addCommentRoot = document.querySelector('.js-add-comment');
-    this.commentForm = new AddCommentForm(addCommentRoot);
+    const addCommentFormRoot = document.querySelector('.js-add-comment');
+    this.commentForm = new AddCommentForm(addCommentFormRoot);
     this.commentForm.addObserver(this);
     this.storage = store;
     this.storage.addObserver(this);
