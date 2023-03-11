@@ -1,10 +1,8 @@
-import { storage } from "../../storage/storage";
-
 export class AddCommentForm {
 
-  constructor (addCommentForm,store) {
+  constructor (addCommentForm) {
+    this.observers = [];
     this.addCommentForm = addCommentForm;
-    this.storage = store;
     this.nameError = document.querySelector('.js-add-comment__error_name_error');
     this.nameInput = document.querySelector('.js-add-comment__name');
     this.commentInput = document.querySelector('.js-add-comment__comment');
@@ -38,8 +36,9 @@ export class AddCommentForm {
       date: formData.get('comment-date').length === 0 
             ? new Date().toDateString() 
             : new Date(formData.get('comment-date')).toDateString(), 
+      likes:0,
     }
-    storage.addComment(comment);
+    this.observers.forEach((o) => o.handleEvent('add', comment));
   }
 
   handleInput (event) {
@@ -50,6 +49,12 @@ export class AddCommentForm {
     } else if (isTextInputChange) this.commentError.textContent = '';
   }
 
-}
+  addObserver(o) {
+    this.observers.push(o);
+  }
 
-document.querySelectorAll('.js-add-comment').forEach((form) => new AddCommentForm(form,storage));
+  removeObserver(o) {
+    this.observers = this.observers.filter((subscriber) => subscriber !== o);
+  }
+
+}

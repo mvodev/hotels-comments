@@ -6,11 +6,20 @@ class Storage {
 
   addComment(comment) {
     this.comments.push(comment);
-    this.observers.forEach((o) => o.handleEvent('add', comment));
+  }
+
+  addLikeToComment(commentId) {
+    const comment = this.comments.find((c) => c.id === +commentId);
+    comment.likes += 1;
+  }
+
+  removeLikeFromComment(commentId) {
+    const comment = this.comments.find((c) => c.id === +commentId);
+    comment.likes -= 1;
   }
 
   deleteComment(commentId) {
-    const index = this.comments.findIndex((elem) => elem.id === commentId);
+    const index = this.comments.findIndex((elem) => elem.id === +commentId);
     this.comments.splice(index, 1);
   }
 

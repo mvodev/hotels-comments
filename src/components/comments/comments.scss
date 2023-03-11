@@ -20,5 +20,18 @@
       background-size: cover;
       background-image: url('../../assets/images/trash.png');
     }
+
+    &__like {
+      width: 20px;
+      height: 20px;
+      margin: 5px 0;
+      background-size: cover;
+      cursor: pointer;
+      background-image: url('../../assets/images/like.png');
+    }
+
+    &__like_is_liked {
+      background-image: url('../../assets/images/like-is-liked.png');
+    }
   }
 }
