@@ -1,0 +1,12 @@
+extends ../layouts/default
+
+block variables
+
+block content
+  include ../../components/add-comment/add-comment
+  include ../../components/comments/comments
+  h1 Стажировка HOTELS.RU комментарии
+  .comments-wrapper
+    +add-comment()
+    +comments()
+

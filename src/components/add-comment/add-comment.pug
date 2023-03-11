@@ -1,0 +1,16 @@
+mixin add-comment( { action='#', loginUrl='http://mock-adress-change-me' }={}  )
+  - const actualDate = new Date()
+  form(action=action class="add-comment js-add-comment")  
+    h2.add-comment__header Добавьте комментарий
+    .add-comment__label
+      span Введите ваше имя
+      input(type="text" class="add-comment__name js-add-comment__name" placeholder="Ваше имя" name="name")
+      span.add-comment__error.add-comment__error_name_error.js-add-comment__error_name_error
+    .add-comment__label
+      span Комментарий
+      textarea(name="comment" class="add-comment__comment js-add-comment__comment")
+      span.add-comment__error.add-comment__error_comment_error.js-add-comment__error_comment_error
+    .add-comment__label
+      span Введите дату комментария
+      input(class="add-comment__date" type="date" name="comment-date" value="Введите дату комментария" min=actualDate) 
+    input(type="submit" class="add-comment__submit js-add-comment__submit" value="Записать комментарий")

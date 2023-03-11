@@ -1,0 +1,27 @@
+@import 'base/fonts';
+@import 'base/globals';
+@import 'base/reset';
+
+@import 'helpers/functions';
+@import 'helpers/mixins';
+@import 'helpers/variables';
+
+@import 'libs/libs';
+@import '../components/components';
+
+.main {
+  padding: 30px;
+  h1 {
+    font-weight: 700;
+    font-family: 'Arial',sans-serif;
+    font-size: 36px;
+    text-align: center;
+    margin: 20px auto;
+  }
+}
+
+.comments-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}

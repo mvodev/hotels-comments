@@ -1,0 +1,24 @@
+.comments {
+  .comment {
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(11, 11, 152);
+    font-family: 'Arial', sans-serif;
+    h2 {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 10px;
+      max-width: 300px;
+      overflow-wrap: break-word;
+    }
+    &__trash {
+      width: 20px;
+      height: 20px;
+      margin: 5px 0;
+      cursor: pointer;
+      background-size: cover;
+      background-image: url('../../assets/images/trash.png');
+    }
+  }
+}
