@@ -1,13 +1,13 @@
-import { storage } from '../../model/storage';
 import { AddCommentForm } from '../add-comment/add-comment';
+import { Storage } from '../../model/storage';
 
 export class Comments {
-  constructor(commentsRoot, store) {
+  constructor(commentsRoot) {
     this.commentsRoot = commentsRoot;
     const addCommentFormRoot = document.querySelector('.js-add-comment');
     this.commentForm = new AddCommentForm(addCommentFormRoot);
     this.commentForm.addObserver(this);
-    this.storage = store;
+    this.storage = new Storage();
     this.storage.addObserver(this);
     this.showComments();
   }
@@ -75,4 +75,4 @@ export class Comments {
   }
 }
 
-document.querySelectorAll('.js-comments').forEach((commentRoot) => new Comments(commentRoot, storage));
+document.querySelectorAll('.js-comments').forEach((commentRoot) => new Comments(commentRoot));

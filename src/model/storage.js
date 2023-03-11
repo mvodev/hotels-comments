@@ -1,4 +1,4 @@
-class Storage {
+export class Storage {
   constructor() {
     this.comments = [];
     this.observers = [];
@@ -35,5 +35,3 @@ class Storage {
     this.observers = this.observers.filter((subscriber) => subscriber !== o);
   }
 }
-
-export const storage = new Storage();
