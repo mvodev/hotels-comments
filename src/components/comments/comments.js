@@ -32,7 +32,6 @@ export class Comments {
           dateToShow = `сегодня ${commentHours}:${commentMinutes}`;
         } else dateToShow = `${commentDateToShow}`;
       } else dateToShow = `${commentDateToShow}`;
-      console.log(commentDate);
       const c = document.createElement('li');
       c.setAttribute('data-id', comment.id);
       const header = document.createElement('h2');
