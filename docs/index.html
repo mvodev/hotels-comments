@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стажировка Hotels.ru комментарии</title>
+    <meta name="description" content="Тестовое задание">
+    <meta name="keywords" content="Тестовое задание">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico">
+    <link href="./assets/styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <main class="main">
+      <h1>Стажировка HOTELS.RU комментарии</h1>
+      <div class="comments-wrapper">
+              <form class="add-comment js-add-comment" action="#"> 
+                <h2 class="add-comment__header">Добавьте комментарий</h2>
+                <div class="add-comment__label"><span>Введите ваше имя</span>
+                  <input class="add-comment__name js-add-comment__name" type="text" placeholder="Ваше имя" name="name"><span class="add-comment__error add-comment__error_name_error js-add-comment__error_name_error"></span>
+                </div>
+                <div class="add-comment__label"><span>Комментарий</span>
+                  <textarea class="add-comment__comment js-add-comment__comment" name="comment"></textarea><span class="add-comment__error add-comment__error_comment_error js-add-comment__error_comment_error"></span>
+                </div>
+                <div class="add-comment__label"><span>Введите дату комментария</span>
+                  <input class="add-comment__date" type="date" name="comment-date" value="Введите дату комментария" min="2023-03-16T12:00:21.291Z">
+                </div>
+                <input class="add-comment__submit js-add-comment__submit" type="submit" value="Записать комментарий">
+              </form>
+              <ul class="comments js-comments"></ul>
+      </div>
+    </main>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
