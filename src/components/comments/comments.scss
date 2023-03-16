@@ -18,7 +18,10 @@
       margin: 5px 0;
       cursor: pointer;
       background-size: cover;
-      background-image: url('../../assets/images/trash.png');
+      background-image: url('../../assets/images/garbage-bin.svg');
+    }
+    &__trash:hover {
+      background-image: url('../../assets/images/garbage-bin-red.svg');
     }
 
     &__like {
